@@ -16,7 +16,7 @@ let selectedPlayerOneCharacter = null;
 let selectedPlayerTwoCharacter = null;
 
 if (!playerOneName || !playerTwoName) {
-    window.location.href = '/';
+    window.location.href = '../';
 }
 
 playerOneNameElement.innerText = playerOneName;
@@ -54,7 +54,7 @@ playButton.addEventListener('click', (e) => {
     } else {
         const playerOneCharacterName = selectedPlayerOneCharacter.querySelector('.name').innerText;
         const playerTwoCharacterName = selectedPlayerTwoCharacter.querySelector('.name').innerText;
-        e.target.href = `/play/index.html?player1Name=${encodeURIComponent(playerOneName)}&player2Name=${encodeURIComponent(playerTwoName)}&player1Lives=${encodeURIComponent(characterStats[playerOneCharacterName].lives)}&player2Lives=${encodeURIComponent(characterStats[playerTwoCharacterName].lives)}&player1Attack=${encodeURIComponent(characterStats[playerOneCharacterName].attack)}&player2Attack=${encodeURIComponent(characterStats[playerTwoCharacterName].attack)}&player1Character=${encodeURIComponent(playerOneCharacterName)}&player2Character=${encodeURIComponent(playerTwoCharacterName)}`;
+        e.target.href = `../play/index.html?player1Name=${encodeURIComponent(playerOneName)}&player2Name=${encodeURIComponent(playerTwoName)}&player1Lives=${encodeURIComponent(characterStats[playerOneCharacterName].lives)}&player2Lives=${encodeURIComponent(characterStats[playerTwoCharacterName].lives)}&player1Attack=${encodeURIComponent(characterStats[playerOneCharacterName].attack)}&player2Attack=${encodeURIComponent(characterStats[playerTwoCharacterName].attack)}&player1Character=${encodeURIComponent(playerOneCharacterName)}&player2Character=${encodeURIComponent(playerTwoCharacterName)}`;
     }
 })
 
@@ -63,11 +63,11 @@ statsElements.forEach(stats => {
     const character = characterStats[characterName];
     stats.innerHTML =
 `<div class="livesContainer">
-    <object type="image/svg+xml" data="/assets/heart.svg" class="icon" title="Lives"></object>
+    <object type="image/svg+xml" data="../assets/heart.svg" class="icon" title="Lives"></object>
     <span>${character.lives}</span>
 </div>
 <div class="attackContainer">
-    <object type="image/svg+xml" data="/assets/sword.svg" class="icon" title="Attack"></object>
+    <object type="image/svg+xml" data="../assets/sword.svg" class="icon" title="Attack"></object>
     <span>${character.attack}</span>
 </div>`;
     stats.querySelectorAll('.icon').forEach(icon => {

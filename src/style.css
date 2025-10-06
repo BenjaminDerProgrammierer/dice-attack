@@ -2,27 +2,27 @@
 
 @font-face {
   font-family: "Solid Dice";
-  src: url("/font/SolidDice-Regular.ttf") format("truetype");
+  src: url("./font/SolidDice-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "The Wild Breath of Zelda";
-  src: url("/font/The\ Wild\ Breath\ of\ Zelda.otf") format("opentype");
+  src: url("./font/The\ Wild\ Breath\ of\ Zelda.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Hylian Serif";
-  src: url("/font/HyliaSerifBeta-Regular.otf") format("opentype");
+  src: url("./font/HyliaSerifBeta-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Hylian Symbols";
-  src: url("/font/HylianSymbols.ttf") format("truetype");
+  src: url("./font/HylianSymbols.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Triforce";
-  src: url("/font/Triforce.ttf") format("truetype");
+  src: url("./font/Triforce.ttf") format("truetype");
 }
 
 :root {

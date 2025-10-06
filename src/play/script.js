@@ -32,7 +32,7 @@ let statsElements = document.querySelectorAll('.icon');
 
 // Redirect to start if parameters are missing
 if (!player1Character || !player2Character || !player1Lives || !player2Lives || !player1Attack || !player2Attack || !player1Name || !player2Name) {
-    window.location.href = '/start/';
+    window.location.href = '../start/';
 }
 
 // Set up player info
@@ -125,11 +125,11 @@ function wiggleElement(element) {
 function setCharacterStats(element, lives, attack) {
     element.innerHTML =
         `<div class="livesContainer">
-            <object type="image/svg+xml" data="/assets/heart.svg" class="icon" title="Lives"></object>
+            <object type="image/svg+xml" data="../assets/heart.svg" class="icon" title="Lives"></object>
             <span class="lives">${lives}</span>
         </div>
         <div class="attackContainer">
-            <object type="image/svg+xml" data="/assets/sword.svg" class="icon" title="Attack"></object>
+            <object type="image/svg+xml" data="../assets/sword.svg" class="icon" title="Attack"></object>
             <span class="attack">${attack}</span>
         </div>`;
     element.querySelectorAll('.icon').forEach(icon => {
