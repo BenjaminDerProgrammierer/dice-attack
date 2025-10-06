@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+@font-face {
+  font-family: "Solid Dice";
+  src: url("/font/SolidDice-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "The Wild Breath of Zelda";
+  src: url("/font/The\ Wild\ Breath\ of\ Zelda.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hylian Serif";
+  src: url("/font/HyliaSerifBeta-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hylian Symbols";
+  src: url("/font/HylianSymbols.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Triforce";
+  src: url("/font/Triforce.ttf") format("truetype");
+}
+
+:root {
+  --foreground-color: #ffffff;
+
+  --frosted-border-color: #ffffff70;
+
+  --zelda-color-1: #ce9019;
+  --zelda-color-2: #61abb8;
+  --zelda-color-3: #10592e;
+  --zelda-color-4: #e8c03d;
+  --zelda-color-5: #dfcf91;
+
+  --zelda-color-1-hover: color-mix(in srgb, var(--zelda-color-1) 90%, black);
+  --zelda-color-2-hover: color-mix(in srgb, var(--zelda-color-2) 90%, black);
+  --zelda-color-3-hover: color-mix(in srgb, var(--zelda-color-3) 90%, black);
+  --zelda-color-4-hover: color-mix(in srgb, var(--zelda-color-4) 90%, black);
+  --zelda-color-5-hover: color-mix(in srgb, var(--zelda-color-5) 90%, black);
+
+  --footer-height: 80px;
+}
+
+* {
+  user-select: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--foreground-color);
+  margin: 0;
+  padding: 0 0 calc(var(--footer-height) + 1rem) 0;
+}
+
+.hylian-symbol {
+  font-family: "Hylian Symbols", sans-serif;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.title {
+  font-family: "The Wild Breath of Zelda", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 1rem 0;
+  filter: drop-shadow(0 0 5px black);
+}
+
+h2 {
+  font-family: "Hylian Serif", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+  filter: drop-shadow(0 0 5px black);
+}
+
+.subtitle {
+  font-family: "Triforce", sans-serif;
+  margin: 0 auto 2rem auto;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  filter: drop-shadow(0 0 5px black);
+}
+
+.feature {
+  font-family: "Hylian Serif", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
+  background-color: var(--zelda-color-1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 5px solid var(--zelda-color-5);
+  width: 400px;
+  height: fit-content;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+
+  &>* {
+    text-align: center;
+    margin: 0 0 10px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  #why {
+    text-wrap: nowrap;
+    animation: scroll-left 20s linear infinite;
+    user-select: none;
+    width: fit-content;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    &>* {
+      &::after {
+        content: ' \0023FA ';
+      }
+
+      &:last-child::after {
+        content: '';
+      }
+    }
+  }
+}
+
+.play-button {
+  display: block;
+  font-family: "Solid Dice", sans-serif;
+  font-size: 3rem;
+  background-color: var(--zelda-color-3);
+  color: var(--foreground-color);
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 auto;
+  width: fit-content;
+  transition: all 0.3s ease;
+
+  &.subtle {
+    font-family: "Triforce", sans-serif;
+    padding: 1rem 2rem;
+  }
+
+  &:hover {
+    background-color: var(--zelda-color-3-hover);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--zelda-color-3);
+  }
+}
+
+.characters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+
+  & .character {
+    backdrop-filter: blur(10px);
+    background-color: #00000040;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    padding: 1rem;
+    border: 3px solid var(--frosted-border-color);
+
+    & .image-container {
+      height: 50%;
+    }
+
+    & .name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 20%;
+      margin: 0;
+
+      font-family: "Triforce", sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    & .type {
+      font-family: "Hylian Serif", sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      height: 10%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+
+    & .stats {
+      font-family: "Hylian Serif", sans-serif;
+      font-size: 1.1rem;
+      height: 20%;
+      margin: 0;
+
+      &>div {
+        margin: 0.2rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      object {
+        width: 1.2rem;
+        height: 1.2rem;
+        vertical-align: middle;
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &:hover {
+      border-color: var(--zelda-color-2);
+      transform: scale(1.01);
+    }
+
+    &.selected {
+      border-color: var(--zelda-color-4);
+      box-shadow: 0 0 10px var(--zelda-color-4);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.names {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--frosted-border-color);
+  border-radius: 1rem;
+  width: fit-content;
+  margin: 0 auto 2rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #00000040;
+
+  label {
+    font-family: "Hylian Serif", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+
+  input {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--frosted-border-color);
+    border-radius: 0.3rem;
+    background-color: #00000020;
+    color: var(--foreground-color);
+
+    &:focus {
+      outline: none;
+      border-color: var(--zelda-color-2);
+      box-shadow: 0 0 5px var(--zelda-color-2);
+      background-color: #00000040;
+    }
+  }
+}
+
+.gameContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 1rem;
+
+  &>* {
+    height: 500px;
+    padding: 1rem;
+  }
+
+  .playerOne,
+  .playerTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #00000040;
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    border: 2px solid var(--frosted-border-color);
+
+    img {
+      max-width: 100%;
+      height: 300px;
+    }
+
+    & #player1Stats,
+    & #player2Stats {
+      font-family: "Hylian Serif", sans-serif;
+      font-size: 1.5rem;
+      height: 20%;
+      margin: 0;
+
+      &>div {
+        margin: 0.2rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      object {
+        width: 1.5rem;
+        height: 1.5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .result {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #rollBtn {
+      font-family: "Hylian Serif", sans-serif;
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--zelda-color-1);
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--zelda-color-1-hover);
+      }
+    }
+
+    #rolls {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 10px;
+      width: 100%;
+      animation: fadeIn 0.5s ease;
+
+      .twoDice {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:last-child {
+          animation: wiggle 0.5s ease;
+        }
+
+        & object {
+          height: 100px;
+          width: 100px;
+        }
+      }
+    }
+
+  }
+}
+
+
+.hidden {
+  display: none;
+}
+
+footer {
+  height: var(--footer-height);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  font-size: 0.6rem;
+  color: var(--foreground-color);
+  border-top: 1px solid var(--frosted-border-color);
+
+  & a {
+    color: var(--foreground-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes wiggle {
+
+  /* Wiggle by rotating 5deg per step, 10 steps total */
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(5deg);
+  }
+
+  20% {
+    transform: rotate(-5deg);
+  }
+
+  30% {
+    transform: rotate(5deg);
+  }
+
+  40% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  70% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  90% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
