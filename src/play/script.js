@@ -74,7 +74,7 @@ rollBtn.addEventListener('click', () => {
     
     if (dice1 > dice2) {
         updatePlayerLives(player2StatsElement, player2Lives -= player1Attack);
-        wiggleElement(player2StatsElement.querySelector('.livesContainer'));
+        swipeDownElement(player2StatsElement.parentNode);
         // color the winning dice green
         dice1Image.addEventListener('load', () => {
             const svgDoc = dice1Image.contentDocument;
@@ -85,7 +85,7 @@ rollBtn.addEventListener('click', () => {
 
     } else if (dice1 < dice2) {
         updatePlayerLives(player1StatsElement, player1Lives -= player2Attack);
-        wiggleElement(player1StatsElement.querySelector('.livesContainer'));
+        swipeDownElement(player1StatsElement.parentNode);
         // color the winning dice green
         dice2Image.addEventListener('load', () => {
             const svgDoc = dice2Image.contentDocument;
@@ -117,6 +117,13 @@ function rollDice() {
 
 function wiggleElement(element) {
     element.style.animation = 'wiggle 0.5s';
+    element.addEventListener('animationend', () => {
+        element.style.animation = '';
+    });
+}
+
+function swipeDownElement(element) {
+    element.style.animation = 'swipeDown 0.5s';
     element.addEventListener('animationend', () => {
         element.style.animation = '';
     });
