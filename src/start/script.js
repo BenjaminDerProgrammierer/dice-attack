@@ -9,6 +9,7 @@ const playerTwoCharacters = document.querySelectorAll('.playerTwo .character');
 const playButton = document.querySelector('.play-button');
 const playerOneNameElement = document.getElementById('namePlayerOne');
 const playerTwoNameElement = document.getElementById('namePlayerTwo');
+const statsElements = document.querySelectorAll('.stats');
 
 let playerOneName = localStorage.getItem('playerOneName');
 let playerTwoName = localStorage.getItem('playerTwoName');
